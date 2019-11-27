@@ -1,0 +1,200 @@
+Informações sobre a versão
+Microsoft JDBC Driver 6.4 para SQL Server
+Fevereiro de 2018
+
+------------
+INTRODUÇÃO
+------------
+Este arquivo contém as últimas novidades e outras informações importantes que complementam a documentação do Microsoft JDBC 
+Driver 6.4 para SQL Server. Você deve ler este arquivo inteiramente antes de instalar 
+o driver JDBC.
+
+Seus comentários são muito importantes para nós e procuraremos responder a eles de maneira 
+oportuna. Para obter informações sobre como fornecer comentários usando os blogs do driver JDBC e os fóruns online, 
+consulte a página do Microsoft JDBC Driver 6.4 para SQL Server em https://aka.ms/mssql-jdbc
+
+
+------------
+INSTALAÇÃO
+------------
+As instruções sobre a instalação do driver JDBC estão localizadas no arquivo install.txt. Consulte esse arquivo para 
+obter informações sobre a instalação do driver JDBC nos sistemas operacionais Windows, Linux e Mac.
+
+
+---------------------------
+SISTEMAS OPERACIONAIS COM SUPORTE
+---------------------------
+Os sistemas operacionais compatíveis com o Microsoft JDBC Driver 6.4 para SQL Server incluem:
+  Windows Server 2008 SP2
+  Windows Server 2008 R2 SP1
+  Windows Server 2012
+  Windows Server 2012 R2
+  Windows Server 2016
+  Windows 8
+  Windows 8.1
+  Windows 10
+  Linux
+  Mac
+
+A lista acima é um exemplo de alguns sistemas operacionais com suporte. O driver JDBC foi desenvolvido 
+para funcionar em qualquer sistema operacional que dê suporte ao uso de uma JVM (Máquina Virtual Java). 
+
+No entanto, somente os sistemas operacionais mais recentes do Linux e Mac OS (Ubuntu 17, CentOs 7, Suse 12, 
+Mac OS 10.13) foram testados quanto à compatibilidade e suporte.
+
+
+----------------
+CONTEÚDO DA VERSÃO
+----------------
+O zip executável ou o arquivo tar do Microsoft JDBC Driver 6.4 para SQL Server desempacota os arquivos a seguir 
+nos locais especificados, relativo ao diretório de instalação selecionado:
+
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\install.txt
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\release.txt
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\license.txt
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\thirdpartynotices.txt
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\mssql-jdbc-6.4.0.jre7.jar
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\mssql-jdbc-6.4.0.jre8.jar
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\mssql-jdbc-6.4.0.jre9.jar
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\auth\x86\sqljdbc_auth.dll
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\auth\x64\sqljdbc_auth.dll
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\samples\<arquivos de exemplos...>
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\xa\xa_install.sql
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\xa\x86\sqljdbc_xa.dll
+<diretório de instalação>\sqljdbc_<versão>\<idioma>\xa\x64\sqljdbc_xa.dll
+
+Para obter informações detalhadas sobre cada componente, veja a documentação online,
+Documentação do Microsoft JDBC Driver para SQL Server: 
+https://msdn.microsoft.com/pt-br/library/dn197850(v=sql.10).aspx
+
+
+-------------
+DOCUMENTAÇÃO
+-------------
+Essas informações de versão, as instruções de instalação e os termos de licença estão incluídos neste pacote. 
+Todas as outras documentações podem ser encontradas online.
+
+Observe que os arquivos de ajuda offline foram descontinuados. 
+
+
+---------
+ARQUIVOS JAR
+---------
+Para dar suporte à compatibilidade com versões anteriores e possíveis cenários de atualização, o JDBC Driver 6.4 inclui 
+três bibliotecas de classes JAR em cada pacote de instalação: 
+	mssql-jdbc-6.4.0.jre7.jar
+	mssql-jdbc-6.4.0.jre8.jar
+	mssql-jdbc-6.4.0.jre9.jar.
+
+
+----------------------
+ARQUIVOS ESPECÍFICOS DE RECURSO
+----------------------
+O Azure Active Directory e os componentes de Autenticação Integrada (no Windows) estão incluídos no diretório “auth”.
+
+Os componentes de transação distribuída do JDBC estão incluídos no diretório “xa”.
+
+
+--------------------
+DEPENDÊNCIAS DE RECURSO
+--------------------
+Alguns recursos no Microsoft JDBC Driver 6.4 para SQL Server são dependentes de bibliotecas externas como listado abaixo:
+
+1. Usando “Always Encrypted” com o provedor do Azure Key Vault
+   Biblioteca dependente: azure-keyvault(version 1.0.0) e adal4j(version 1.4.0)
+   
+2. Usando “Autenticação Integrada do Azure Active Directory” nos sistemas operacionais Windows, Linux e Mac
+   Biblioteca dependente: adal4j(version 1.4.0)
+
+Informações detalhadas sobre a inclusão dessas bibliotecas dependentes em um aplicativo Java padrão ou um aplicativo Maven
+podem ser encontradas aqui: https://go.microsoft.com/fwlink/?linkid=867575
+
+
+-------
+EXEMPLOS
+-------
+Os aplicativos de exemplo que demonstram vários recursos do driver JDBC estão incluídos no diretório
+“samples”. Para obter mais detalhes sobre cada exemplo e como executá-los, veja a documentação 
+online.
+
+
+-----------
+LISTA DE ALTERAÇÕES
+-----------
+Alterações da 6.2.2.1 para 6.4.0.0:
+– O Driver não lê mais a propriedade de conexão “fipsProvider” e cria uma instância de Repositório de Chaves do
+  provedor preferencial atravessando a lista de provedores de segurança registrados.
+  
+Aprimoramentos: 
+– O Driver agora compila Jars com a máquina virtual JDK 9 e introduz métodos da API do JDBC 4.3.
+– O Driver agora é compatível com o armazenamento em cache de metadados da Instrução Preparada no driver com 'disableStatementPooling' e
+  “disableStatementPooling” e “statementPoolingCacheSize”. Por padrão, esse recurso está desabilitado.
+– Adicionado o suporte para DataType SQLVariant em consultas de tabela, BulkCopy e Parâmetros com Valor de Tabela.
+– O Driver agora é compatível com a especificação de TrustManager personalizado com as propriedades de conexão “trustManagerClass” e “trustManagerConstructorArg”
+  .
+– O Driver agora é compatível com a especificação da versão do protocolo SSL especificando uma nova propriedade de conexão “sslProtocol”.
+– O Driver agora também é compatível com a Autenticação Integrada do Azure Active Directory em todos os sistemas operacionais compatíveis (Linux/Windows/Mac) 
+  com o Kerberos.
+– Adicionado suporte dataTypes DATETIME e SMALLDATETIME ao usar TVP (Parâmetros com Valor de Tabela).
+– Adicionado suporte para CallableStatement para reconhecer nomes de parâmetros com um símbolo “@” (arroba).
+
+Correções de bug:
+– Correção de conversões incorretas ao alterar as maiúsculas e minúsculas de Literais de Cadeia de Caracteres quando nenhuma localidade ou uma localidade diferente de inglês
+  é especificada.
+– Correção de problemas com a contagem de parâmetro incorreta retornada por getParameterCount() quando uma instrução INSERT 
+  contém uma subconsulta com parâmetros.
+– Correção do problema com getParameterMetaData() quando caracteres de espaço em branco que não são espaços são passados na consulta.
+– Correção do problema com CallableStatement.getString() quando o tipo de parâmetro é uniqueIdentifier.
+– Correção de vazamentos de instrução encontrados em SQLServerPreparedStatement.getMetaData().
+– Correção do problema para usar o valor padrão de 15 segundos como loginTimeout no caso de um valor zero especificado.
+– Correção do problema no tratamento da exceção PreparedStatement para gerar a Exceção de Lote inicial.
+– Correção de problemas com DatabaseMetaData.getImportedKeys() para retornar os valores corretos para DELETE_RULE e UPDATE_RULE.
+– Correção de problemas com o vazamento de ClassLoader causado pela classe ActivityCorrelator.
+– Correção do problema com a construção de SQLServerDataTable que resultava em objetos O(n^2).
+– Correção do problema em TimeoutTimer para evitar IllegalThreadStateException se o ThreadGroup subjacente foi destruído.
+– Correção do problema com o tratamento da Exceção de Conta Bloqueada exceção 18486 ao estabelecer conexão com o SQL Server.
+– Correção da falha causada pelo xa_recover após a reinicialização do MSDTC.
+
+
+------------
+PROBLEMAS CONHECIDOS
+------------
+O Microsoft JDBC Driver 6.4 para SQL Server apresenta os seguintes problemas conhecidos:
+
+1) LIMITAÇÕES DE METADADOS DO PARÂMETRO AO USAR O SQL SERVER 2008 OU 2008 R2
+
+1.a) O PreparedStatement.getParameterMetadata() envia uma SQLException quando usado
+com uma consulta parametrizada MERGE.
+
+1.b) Os metadados de parâmetro para instruções preparadas não funcionam com consultas que têm subconsultas/junções.
+
+
+2) REMOÇÃO DE CONEXÕES COM SQL AZURE
+
+Ao se conectar ao SQL Azure, conexões ociosas podem ser finalizadas por um componente de rede (como um 
+firewall) após um período de inatividade. Para evitar a remoção de conexões ociosas por um componente de rede, 
+as seguintes configurações do registro (ou seus equivalentes não Windows) devem ser definidas no sistema 
+operacional em que o driver foi carregado:
+           
+Configuração do Registro                                                                     Valor recomendado
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime            30000
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveInterval         1000
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\TcpMaxDataRetransmission  10
+
+
+3) QUANDO USAR TVP COM SQL_VARIANT 
+
+3.a) PARA VALORES DE DATA
+
+Ao usar TVP para popular uma tabela que contém os valores datetime/smalldatetime/date armazenados na coluna sql_variant, 
+chamar getDateTime()/getSmallDateTime()/getDate() em resultset não funciona e gera a seguinte exceção:
+
+	Não é possível converter java.lang.String em java.sql.Timestamp
+
+Solução alternativa: use getString() ou getObject().
+
+3.b) USANDO TVP COM SQL_VARIANT PARA VALORES NULL
+
+Se você estiver usando um TVP para popular uma tabela e enviar um valor NULL para o tipo de coluna sql_variant, encontrará
+uma exceção, uma vez que a inserção do valor NULL com o tipo de coluna sql_Variant no TVP não é compatível no momento.
+
