@@ -521,9 +521,6 @@ public class Interface {
 				return false;
 			}
 
-			System.out.print("Descricao: ");
-			((House) newProperty).setDescription(keyboardReading.nextLine());
-
 			// CALL FUNCTION TO UPDATE BOTH ADDRESS AND PROPERTY
 			cSys.updateHouse(((House) newProperty), idProperty, idAddress);
 			System.out.println("\nAlterada com sucesso.");
@@ -544,9 +541,7 @@ public class Interface {
 					throw new NumberFormatException();
 				}
 
-				System.out.println("Duplex: ");
-				System.out.println("1. Sim ");
-				System.out.println("2. Nao ");
+				System.out.print("Duplex (1.Sim  2.Nao): ");
 
 				// CHECK ISDUPLEX TRUE OR FALSE
 				int isDuplex = Integer.parseInt(keyboardReading.nextLine());
