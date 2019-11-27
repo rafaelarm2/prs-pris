@@ -21,7 +21,7 @@ O banco de dados é do Microsoft SQL Server, sendo que o arquivo (sql.txt) cont�
 
 <b>Outros</b>
 <ul> 
-	<li> Teste unitário com JUnit na função ConnectionFactory, que verifica se a conexão está funcionando
+	<li> Teste unitário com JUnit na função ConnectionFactory, que verifica se a conexão com o banco de dados está funcionando
 	<li> Arquitetura MVC foi implementada obedecendo os diretórios do projeto (controller, view (ui) e model (DAO))
 	<li> Herança implementada para diferenciar Apartamento e Casa, sendo que Imóvel (Property) é uma classe abstrata
 	<li> Interface (IRepository) utilizada para fazer a conexão do controller com o model
