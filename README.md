@@ -19,7 +19,7 @@ O banco de dados é do Microsoft SQL Server, sendo que o arquivo (sql.txt) cont�
 	<li> Função de alugar imóvel (atribui o cpf do usuário logado ao imóvel selecionado e ele se torna indisponível)
 </ul>
 
-<b>Extras</b>
+<b>Outros</b>
 <ul> 
 	<li> Teste unitário com JUnit na função ConnectionFactory, que verifica se é a conexão está funcionando
 	<li> Arquitetura MVC foi implementada obedecendo os packages do projeto (controller, view (ui) e model (DAO))
