@@ -388,7 +388,7 @@ public class Interface {
 		//GET ALL PROPERTIES
 		this.getListProperty();
 
-		Property oldProperty, newProperty;
+		Property newProperty;
 		
 		int idProperty = 0;
 		//SELECT PROPERTY TO UPDATE
@@ -506,8 +506,7 @@ public class Interface {
 		//GET INFORMATION ABOUT THE HOUSE OR APARTMENT
 		if (typeProperty == 1) {
 			//GET PROPERTY HOUSE OBJECT TO UPDATE
-			oldProperty = cSys.readHouse(idProperty);
-			
+
 			//CREATE A NEW OBJECT TO REPLACE THE OLDER
 			newProperty = new House(typeProperty, newAddress, pricerental, room, bathroom, parking, area, description);
 			
@@ -534,9 +533,7 @@ public class Interface {
 			System.out.println("Alterada com sucesso. \n");
 			return true;
 		} else {
-			//GET PROPERTY APARTMENT OBJECT TO UPDATE
-			oldProperty = cSys.readApartment(idProperty);
-			
+
 			//CREATE A NEW OBJECT TO REPLACE THE OLDER
 			newProperty = new Apartment(typeProperty, newAddress, pricerental, room, bathroom, parking, area, description);
 			
